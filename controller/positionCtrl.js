@@ -5,12 +5,28 @@ module.exports = {
         const msg = await positionModel.save(req.body)
         if(msg) {
             res.send({
-                code: 200,
+                ret: true,
                 data: 'success'
             })
         } else {
             res.send({
-                code: 400,
+                ret: false,
+                data: 'failed'
+            })
+        }
+    },
+
+    list: async (req, res, next) => {
+        console.log(req.body)
+        const msg = await positionModel.list(req.body)
+        if(msg) {
+            res.send({
+                ret: true,
+                data: msg
+            })
+        } else {
+            res.send({
+                ret: false,
                 data: 'failed'
             })
         }

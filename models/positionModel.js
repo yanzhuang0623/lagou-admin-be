@@ -24,6 +24,11 @@ const save = (data) => {
     return position.save()
 }
 
+const list = (data) => {
+    return Positions.find(data)
+}
+
 module.exports = {
-    save
+    save,
+    list
 }
