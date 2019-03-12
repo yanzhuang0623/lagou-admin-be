@@ -2,6 +2,8 @@ const positionModel = require('../models/positionModel');
 
 module.exports = {
     save: async(req, res, next) => {
+        req.body.companyLogo = req.filename
+        req.body.createTime  = new Date().getTime();
         const msg = await positionModel.save(req.body)
         if(msg) {
             res.send({
